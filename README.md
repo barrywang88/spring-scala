@@ -72,3 +72,5 @@ Scala-sql 是一个轻量级的 JDBC 库，提供了在scala中访问关系型�
 可扩展：不同于JDBC，只能使用固定的一些类型，scala-sql通过Bound Context:JdbcValueAccessor来扩展，也就是说，如果你定义了 对应的扩展，URL、FILE也是可以作为传给JDBC的参数的。（当然，需要在JdbcValueAccessor中正确的进行处理）。 
 
 4) 代码结构
+
+请参考[spring-scala](https://github.com/barrywang88/spring-scala)
