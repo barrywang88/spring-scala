@@ -61,7 +61,7 @@ CQRS采用Spring MVC+Scala+Scala sql是实现。
 
 3) 为什么用Scala sql代替MyBatis:
 
-Scala-sql 是一个轻量级的 JDBC 库，提供了在scala中访问关系型数据库的一个简单的API，其定位是对面 scala开发者，提供一个可以替换 spring-jdbc, MyBatis 的数据访问库。相比 spring-jdbc, MyBatis, Hibernate 等库，scala-sql有一些自己独特的特点：
+[Scala-sql](https://github.com/barrywang88/spring-scala/tree/master/core/src/main/scala/com/github/barry/core/sql) （[原作者请参考](https://github.com/wangzaixiang/scala-sql)）是一个轻量级的 JDBC 库，提供了在scala中访问关系型数据库的一个简单的API，其定位是对面 scala开发者，提供一个可以替换 spring-jdbc, MyBatis 的数据访问库。相比 spring-jdbc, MyBatis, Hibernate 等库，scala-sql有一些自己独特的特点：
 1. SQL语句与对象直接映射。函数式支持。scala-sql支持从ResultSet到Object的映射，在1.0版本中，是映射到JavaBean，而在2.0中，则是映射到Case Class。选择 Case Class的原因也是为了更好的支持函数式编程。（支持Case Class与函数式编程有什么关系？函数式编程的精髓就是无副作用的值变换， immutable才是函数式编程的真爱）
 2. 编译期间的SQL语法检查。 这个特性可以让开发变得更加便捷一些，如果有SQL语法错误，或者存在错误拼写的字段名、表名等情况，在编译时期就能 发现错误，可以更快的暴露错误，缩短测试周期。
 3. 零学习成本。只要你会写Sql脚本，了解了Scala基本语法。你就可以直接使用scala-sql对Mysql做增删改查。
