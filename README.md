@@ -74,3 +74,5 @@ CQRS采用Spring MVC+Scala+Scala sql是实现。
 4) 代码结构
 
 请参考[spring-scala](https://github.com/barrywang88/spring-scala)
+
+![代码结构图](https://img2020.cnblogs.com/blog/693275/202004/693275-20200425150551600-1020852545.png)
