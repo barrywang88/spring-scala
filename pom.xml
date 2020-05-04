@@ -22,9 +22,12 @@
     <scala.version>2.12.4</scala.version>
     <spring.version>5.2.4.RELEASE</spring.version>
     <spring.boot.version>2.2.5.RELEASE</spring.boot.version>
+    <fasterxml.jackson.version>2.9.9</fasterxml.jackson.version>
     <!-- plugin config -->
     <plugin.maven.scala.version>4.3.1</plugin.maven.scala.version>
     <mysql.version>5.1.48</mysql.version>
+    <logback.version>1.1.7</logback.version>
+    <slf4j.version>1.7.21</slf4j.version>
   </properties>
 
   <dependencies>
@@ -38,11 +41,6 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
     </dependency>
   </dependencies>
 </project>

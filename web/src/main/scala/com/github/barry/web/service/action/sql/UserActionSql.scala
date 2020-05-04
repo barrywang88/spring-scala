@@ -18,7 +18,7 @@ object UserActionSql {
    * @param request
    * @return
    */
-  def insertUser(request: UserSaveReq): Long ={
+  def insert(request: UserSaveReq): Long ={
     DatasourceConfig.myDatasource.generateKey[Long](
       sql"""INSERT INTO user
                      SET name = ${request.name},
@@ -26,6 +26,45 @@ object UserActionSql {
                          company_id = ${request.companyId},
                          telphone = ${request.telphone},
                          birthday = ${request.birthday},
-                         salary = ${request.salary}""")
+                         salary = ${request.salary},
+                         update_time = now(),
+                         is_delete = 0
+                         """)
+  }
+
+  /**
+   * 更新用户信息
+   * @param request
+   * @return
+   */
+  def update(request: UserSaveReq): Int ={
+    DatasourceConfig.myDatasource.executeUpdate(
+      sql"""UPDATE user
+                     SET name = ${request.name},
+                         role = ${request.role},
+                         company_id = ${request.companyId},
+                         telphone = ${request.telphone},
+                         birthday = ${request.birthday},
+                         salary = ${request.salary},
+                         update_time = now(),
+                         is_delete = 0
+                    WHERE id = ${request.id}
+                         """)
+
+  }
+
+  /**
+   * 删除用户信息
+   * @param userId
+   * @return
+   */
+  def delete(userId: Long): Int ={
+    DatasourceConfig.myDatasource.executeUpdate(
+      sql""" DELETE
+                    FROM
+                      user
+                    WHERE
+                      id = $userId""")
+
   }
 }

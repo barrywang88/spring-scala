@@ -1,5 +1,7 @@
 package com.github.barry.web.domain.request
 
+import com.github.barry.core.domain.PageQuery
+
 /**
  * @ClassName UserQueryReq
  * @Description TODO
@@ -26,4 +28,4 @@ case class UserQueryReq(  /**
                            * 生日
                            */
                           birthday : Option[String],
-                       )
+                       ) extends PageQuery

@@ -7,13 +7,13 @@ import com.github.barry.web.service.action.sql.UserActionSql
 import org.apache.commons.lang3.StringUtils
 
 /**
- * @ClassName InsertUserAction
- * @Description 添加用户
+ * @ClassName UpdateUserAction
+ * @Description 更新用户信息
  * @Author wangxuexing
- * @Date 2020/4/12 18:36
+ * @Date 2020/5/3 16:44
  * @Version 1.0
  */
-class InsertUserAction(request: UserSaveReq) extends Action[Long]{
+class UpdateUserAction(request: UserSaveReq) extends Action[Int]{
   /**
    * 前置检查
    */
@@ -31,7 +31,7 @@ class InsertUserAction(request: UserSaveReq) extends Action[Long]{
    *
    * @return
    */
-  override def action: Long = {
-    UserActionSql.insert(request)
+  override def action: Int = {
+    UserActionSql.update(request)
   }
 }

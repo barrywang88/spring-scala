@@ -7,7 +7,7 @@ package com.github.barry.core.exception
  * @Date 2020/3/18 11:50
  * @Version 1.0
  */
-class CommonException(val errorCode: String, val message: String) extends RuntimeException with BaseCodeInterface{
+class CommonException(val errorCode: String, val message: String) extends Exception with BaseCodeInterface{
   override def getCode: String = errorCode
   override def getMsg: String = message
 }

@@ -9,6 +9,10 @@ package com.github.barry.web.domain.request
  */
 case class UserSaveReq(
                         /**
+                         * 主键ID
+                         */
+                        id: Long,
+                        /**
                          * 金融机构ID
                          */
                         companyId : Long,

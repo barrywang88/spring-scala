@@ -1,5 +1,6 @@
 package com.github.barry.core.cqrs
 
+import com.github.barry.core.domain.ResultModel
 import org.slf4j.{Logger, LoggerFactory}
 
 import scala.util.control.NonFatal
@@ -17,10 +18,10 @@ trait Action[Output] {
    * 定义查询流程
    * @return
    */
-  def execute: Output={
+  def execute: ResultModel[Output]={
     try {
       perCheck
-      val output: Output = action
+      val output = new ResultModel(action)
       postCheck
       output
     }  catch {
