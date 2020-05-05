@@ -1,9 +1,9 @@
-package com.github.barry.web.service.action
+package com.github.barry.web.service.impl.action
 
 import com.github.barry.core.cqrs.{Action, Assert}
 import com.github.barry.core.exception.CommonException.dataIsEmpty
 import com.github.barry.web.domain.request.UserSaveReq
-import com.github.barry.web.service.action.sql.UserActionSql
+import com.github.barry.web.service.impl.action.sql.UserActionSql
 import org.apache.commons.lang3.StringUtils
 
 /**
@@ -28,10 +28,11 @@ class InsertUserAction(request: UserSaveReq) extends Action[Long]{
 
   /**
    * 具体业务逻辑处理
-   *
    * @return
    */
   override def action: Long = {
-    UserActionSql.insert(request)
+    val result = UserActionSql.insert(request)
+   // result/0 //事物异常抛出异常
+    result
   }
 }

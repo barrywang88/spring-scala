@@ -6,7 +6,7 @@ import com.alibaba.druid.pool.DruidDataSource
 import javax.sql.DataSource
 import org.springframework.beans.factory.annotation.{Qualifier, Value}
 import org.springframework.context.annotation.{Bean, Configuration}
-import org.springframework.jdbc.datasource.DataSourceTransactionManager
+import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy
 import org.springframework.transaction.annotation.EnableTransactionManagement
 
 object DatasourceConfig {
@@ -70,13 +70,15 @@ class DatasourceConfig( @Value("${spring.datasource.url}") url:String,
     druidDataSource.setConnectProperties(this.connectionProperties)
     druidDataSource.setUseGlobalDataSourceStat(this.useGlobalDataSourceStat)
     druidDataSource.setFilters(this.filters)
-    DatasourceConfig.myDatasource = druidDataSource
+    println(druidDataSource)
     druidDataSource
   }
 
-  @Bean(name = Array("transactionManager"))
-  def transactionManager(@Qualifier("masterDataSource") masterDataSource: DataSource):
-  DataSourceTransactionManager = {
-    new DataSourceTransactionManager(masterDataSource)
+  @Bean
+  def transactionAwareDataSourceProxy(@Qualifier("masterDataSource") dataSource: DataSource): TransactionAwareDataSourceProxy ={
+    val dataSourceProxy =  new TransactionAwareDataSourceProxy(dataSource)
+    DatasourceConfig.myDatasource = dataSourceProxy
+    dataSourceProxy
   }
+
 }

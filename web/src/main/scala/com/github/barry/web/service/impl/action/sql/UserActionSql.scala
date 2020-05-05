@@ -1,4 +1,4 @@
-package com.github.barry.web.service.action.sql
+package com.github.barry.web.service.impl.action.sql
 
 import com.github.barry.core.sql.sql._
 import com.github.barry.web.config.DatasourceConfig

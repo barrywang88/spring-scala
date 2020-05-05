@@ -1,8 +1,9 @@
 package com.github.barry.web.controller
 
+import com.github.barry.core.domain.ResultModel
 import com.github.barry.web.domain.request.{UserQueryReq, UserSaveReq}
-import com.github.barry.web.service.action.{DeleteUserAction, InsertUserAction, UpdateUserAction}
-import com.github.barry.web.service.query.{UserDetail, UserQuery}
+import com.github.barry.web.service.UserService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation._
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation._
  */
 @RestController
 @RequestMapping(Array("/user"))
-class UserController {
+class UserController @Autowired()(val userService : UserService)  {
 
   /**
    * 分页用戶信息
@@ -22,7 +23,7 @@ class UserController {
    */
   @PostMapping(value = Array("/list"))
   def list(@RequestBody param: UserQueryReq)={
-     new UserQuery(param).execute
+    userService.list(param)
   }
 
   /**
@@ -30,7 +31,7 @@ class UserController {
    */
   @GetMapping(value = Array("/detail"))
   def detail(@RequestParam userId: Long)={
-    new UserDetail(userId).execute
+    userService.detail(userId)
   }
 
   /**
@@ -39,7 +40,7 @@ class UserController {
    */
   @PostMapping(value = Array("/save"))
   def save(@RequestBody param: UserSaveReq)={
-    new InsertUserAction(param).execute
+    userService.insert(param)
   }
 
   /**
@@ -48,7 +49,7 @@ class UserController {
    */
   @PostMapping(value = Array("/update"))
   def update(@RequestBody param: UserSaveReq)={
-    new UpdateUserAction(param).execute
+    userService.update(param)
   }
 
   /**
@@ -57,7 +58,7 @@ class UserController {
    */
   @PostMapping(value = Array("/delete"))
   def delete(@RequestParam userId: Long)={
-    new DeleteUserAction(userId).execute
+    userService.delete(userId)
   }
 
   /**
@@ -65,6 +66,6 @@ class UserController {
    */
   @GetMapping(value = Array("/ready"))
   def ready={
-    "ok"
+    new ResultModel[Unit]
   }
 }

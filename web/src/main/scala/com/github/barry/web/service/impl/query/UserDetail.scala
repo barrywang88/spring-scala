@@ -1,9 +1,9 @@
-package com.github.barry.web.service.query
+package com.github.barry.web.service.impl.query
 
 import com.github.barry.core.cqrs.{Assert, Query}
 import com.github.barry.core.exception.CommonException.dataIsEmpty
 import com.github.barry.web.domain.entity.User
-import com.github.barry.web.service.query.sql.UserQuerySql
+import com.github.barry.web.service.impl.query.sql.UserQuerySql
 
 /**
  * @ClassName UserDetail

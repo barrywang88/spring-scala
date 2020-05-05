@@ -1,10 +1,10 @@
-package com.github.barry.web.service.query
+package com.github.barry.web.service.impl.query
 
 import com.github.barry.core.cqrs.{Assert, QueryByPage}
 import com.github.barry.core.exception.CommonException._
 import com.github.barry.web.domain.request.UserQueryReq
 import com.github.barry.web.domain.response.UserListResp
-import com.github.barry.web.service.query.sql.UserQuerySql
+import com.github.barry.web.service.impl.query.sql.UserQuerySql
 import org.apache.commons.lang3.StringUtils
 
 /**

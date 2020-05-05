@@ -6,6 +6,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.{ComponentScan, EnableAspectJAutoProxy}
 import org.springframework.scheduling.annotation.{EnableAsync, EnableScheduling}
+import org.springframework.transaction.annotation.EnableTransactionManagement
 
 /**
  * @ClassName SpringBootScalaIntegration
@@ -19,6 +20,7 @@ import org.springframework.scheduling.annotation.{EnableAsync, EnableScheduling}
 @EnableScheduling
 @EnableAspectJAutoProxy
 @EnableAutoConfiguration
+@EnableTransactionManagement
 @SpringBootApplication
 @EnableAsync
 class SpringBootScalaIntegration extends SpringBootServletInitializer
