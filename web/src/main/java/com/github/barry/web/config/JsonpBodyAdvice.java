@@ -10,18 +10,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
  * JSONP处理Advice
- *
- * @author hongbo.zhao
- * @version 1.0
  */
 @ControllerAdvice
 public class JsonpBodyAdvice implements ResponseBodyAdvice {
-
     @Override
     public boolean supports(MethodParameter methodParameter, Class aClass) {
         return true;
     }
-
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         Gson gson = new Gson();

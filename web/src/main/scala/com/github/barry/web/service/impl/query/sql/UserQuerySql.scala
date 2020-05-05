@@ -1,4 +1,4 @@
-package com.github.barry.web.service.query.sql
+package com.github.barry.web.service.impl.query.sql
 
 import com.github.barry.core.`implicit`.Implicits._
 import com.github.barry.core.sql.SQLWithArgs

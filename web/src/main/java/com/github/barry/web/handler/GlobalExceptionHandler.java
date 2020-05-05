@@ -14,8 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
- * web全局异常处理器
- * @author ke.song
+ * 全局异常处理器
  */
 @Slf4j
 @RestControllerAdvice

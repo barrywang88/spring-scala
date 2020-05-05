@@ -32,7 +32,7 @@ class InsertUserAction(request: UserSaveReq) extends Action[Long]{
    */
   override def action: Long = {
     val result = UserActionSql.insert(request)
-   // result/0 //事物异常抛出异常
+    //result/0 //事物异常抛出异常
     result
   }
 }
